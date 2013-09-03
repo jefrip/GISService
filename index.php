@@ -71,7 +71,7 @@ function getKabupatens($id)
         $stmt = $db->prepare($sql);
         $stmt->bindParam("id", $id);
         $stmt->execute();
-        $kabupatens = $stmt->fetchAll();
+        $kabupatens = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
         echo json_encode($kabupatens);
     } catch (\PDOException $e) {
@@ -88,7 +88,7 @@ function getKecamatans($id)
         $stmt = $db->prepare($sql);
         $stmt->bindParam("id", $id);
         $stmt->execute();
-        $kecamatans = $stmt->fetchAll();
+        $kecamatans = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
         echo json_encode($kecamatans);
     } catch (\PDOException $e) {
@@ -105,7 +105,7 @@ function getDesas($id)
         $stmt = $db->prepare($sql);
         $stmt->bindParam("id", $id);
         $stmt->execute();
-        $desas = $stmt->fetchAll();
+        $desas = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
         echo json_encode($desas);
     } catch (\PDOException $e) {
